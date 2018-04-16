@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотека им. Хернеста Эмингуэя</title>
+</head>
+<body>
+    <div>
+        <h1><a href="/">Библиотека им. Хернеста Эмингуэя</a></h1>
+    </div>
+    <div>
+        <h2>У нас есть книги...</h2>
+    </div>
+    <div>
+        {% for book in books %}
+        <ul>{{ book.title }} {{ book.author }}</ul>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
