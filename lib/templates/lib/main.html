@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Библиотека им. Хернеста Эмингуэя</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/lib.css' %}">
-</head>
-<body>
-    <div class="page-header">
-        <h1><a href="/">Библиотека им. Хернеста Эмингуэя</a></h1>
-    </div>
+{% extends 'lib/base.html' %}
+{% block content %}
     <div>
         <h2>У нас есть книги...</h2>
     </div>
     <div>
         {% for book in books %}
-        <ul>{{ book.title }} {{ book.author }}</ul>
+            <ul> <a href="{%  url 'book_detail' pk=book.pk %}">{{ book.title }} - {{ book.author }}</a></ul>
         {% endfor %}
     </div>
-
-</body>
-</html>
+{% endblock content %}

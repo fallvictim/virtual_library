@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'lib/base.html' %}
+{% block content %}
+    <div class="book">
+        <h2 class="title">{{ book.author }} - {{ book.title }}</h2>
+        <div class="description">
+            <p> Название: {{ book.title }}</p>
+            <p> Автор: {{ book.author }}</p>
+            <p> Издательство: {{ book.publishing_info }}</p>
+            <p> Шифр: {{ book.cipher }}</p>
+            <p> Цена: {{ book.price}} р.</p>
+            <p> Объем: {{ book.volume }} стр.</p>
+        </div>
+    </div>
+{% endblock content %}
