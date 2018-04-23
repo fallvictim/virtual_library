@@ -9,7 +9,8 @@ h1 a {
 }
 
 .sidebar-nav {
+    font-family: Verdana, cursive;
+    font-size: x-large;
     margin-top: 20px;
-    padding: 0;
     list-style: none;
 }

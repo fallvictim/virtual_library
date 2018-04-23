@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "lib/base.html" %}
+
+{% block content %}
+
+<h1>Удалить экземпляр</h1>
+
+<p>Вы действительно хотите удалить экземпляр книги: {{ bookinstance.book }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="Yes, delete." />
+</form>
+
+{% endblock %}

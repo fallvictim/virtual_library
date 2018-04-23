@@ -8,8 +8,28 @@
             <p> Автор: {{ book.author }}</p>
             <p> Издательство: {{ book.publishing_info }}</p>
             <p> Шифр: {{ book.cipher }}</p>
-            <p> Цена: {{ book.price}} р.</p>
+            <p> Цена: {{ book.price }} р.</p>
             <p> Объем: {{ book.volume }} стр.</p>
         </div>
-    </div>
+        {% if perms.lib.change_book %}
+            <h2><a href="{% url 'book_update' pk=book.pk %}">Редактировать</a></h2>
+            <h2><a href="{% url 'book_delete' pk=book.pk %}">Удалить</a></h2>
+        {% endif %}
+        <div style="margin-left:20px;margin-top:20px">
+            <h4>Copies</h4>
+
+            {% for copy in book.bookinstance_set.all %}
+                <hr>
+                <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'd' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+                {% if copy.status != 'a' %}<p><strong>Срок возврата:</strong> {{ copy.due_back }}</p>{% endif %}
+                <p><strong>Информация:</strong> {{ copy.imprint }}</p>
+                <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+                {% if perms.lib.change_book %}
+                <p><a href="{% url 'bookinst_update' book_pk=book.pk pk=copy.pk %}">Редактировать</a></p>
+                <p><a href="{% url 'bookinst_delete' book_pk=book.pk pk=copy.pk %}">Удалить</a></p>
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
 {% endblock content %}
