@@ -4,7 +4,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import BookInstance, Book
+from .models import BookInstance, Book, User
 
 
 def main_page(request):
@@ -79,3 +79,11 @@ class BookInstanceDelete(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('books')
     template_name = 'lib/bookinst_delete.html'
     permission_required = 'lib.change_book'
+
+
+class UserCreate(PermissionRequiredMixin, CreateView):
+    model = User
+    fields = ['password', 'username', 'first_name', 'last_name']
+    template_name = 'lib/book_form.html'
+    permission_required = 'lib.change_book'
+    success_url = '/'

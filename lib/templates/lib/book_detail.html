@@ -22,11 +22,11 @@
                 <hr>
                 <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'd' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
                 {% if copy.status != 'a' %}<p><strong>Срок возврата:</strong> {{ copy.due_back }}</p>{% endif %}
-                <p><strong>Информация:</strong> {{ copy.imprint }}</p>
                 <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
                 {% if perms.lib.change_book %}
-                <p><a href="{% url 'bookinst_update' book_pk=book.pk pk=copy.pk %}">Редактировать</a></p>
-                <p><a href="{% url 'bookinst_delete' book_pk=book.pk pk=copy.pk %}">Удалить</a></p>
+                    <p><strong>Подписчик:</strong> {{ copy.borrower }}</p>
+                    <p><a href="{% url 'bookinst_update' book_pk=book.pk pk=copy.pk %}">Редактировать</a></p>
+                    <p><a href="{% url 'bookinst_delete' book_pk=book.pk pk=copy.pk %}">Удалить</a></p>
                 {% endif %}
 
             {% endfor %}

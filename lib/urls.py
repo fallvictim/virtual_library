@@ -27,3 +27,7 @@ urlpatterns += [
     path('book/(<int:book_pk>/<uuid:pk>/update', views.BookInstanceUpdate.as_view(), name='bookinst_update'),
     path('book/<int:book_pk>/<uuid:pk>/delete', views.BookInstanceDelete.as_view(), name='bookinst_delete')
 ]
+
+urlpatterns += [
+    path('book/users/create', views.UserCreate.as_view(), name='user_create'),
+]
