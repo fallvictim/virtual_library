@@ -2,5 +2,38 @@
 {% extends 'lib/base.html' %}
 {% block content %}
     <h2>Добро пожаловать на сайт библиотеки им. Хернэста Эмингуэя.</h2>
-    <p>Сайт является учебным проектом. При написании были использованы язык Python, фреймворк Django.</p>
+    <div class="overflow-table">
+    <h3><strong>График работы:</strong></h3>
+        <table  style="margin-left: 10px">
+            <tr>
+                <td>ПН</td>
+                <td>10-20</td>
+            </tr>
+            <tr>
+                <td>ВТ</td>
+                <td>10-20</td>
+            </tr>
+            <tr>
+                <td>СР</td>
+                <td>10-20</td>
+            </tr>
+            <tr>
+                <td>ЧТ</td>
+                <td>10-20</td>
+            </tr>
+            <tr>
+                <td>ПТ</td>
+                <td>10-18</td>
+            </tr>
+            <tr style="color: red">
+                <td>СБ</td>
+                <td>выходной</td>
+            </tr>
+            <tr style="color: red">
+                <td>ВС</td>
+                <td>выходной</td>
+            </tr>
+        </table>
+        <h4><strong>Телефон: 87654321098</strong></h4>
+    </div>
 {% endblock content %}
